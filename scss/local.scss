@@ -1,16 +1,48 @@
 @import "components/variables";
+@import "components/functions";
+@import "components/mixin";
 @import "main";
 
+
 .card {
+  @include drop-shadow($drop-shadow-low);
   background-color: $card-background-color;
   border: $card-border;
   height: $card-height;
   margin: $card-margin;
   padding: $card-padding;
   width: $card-width;
+  font-size: $card-paragraph-font-size;
+  transition: all 0.75s ease;
+  position: relative;
+  h3 {
+    font-size: $card-title-font-size;
+    transition: all 0.75s ease;
+    position: relative;
+    margin-top: 0.1rem;
+    z-index: 1;
+  }
+  &:hover {
+    font-size: $card-paragraph-font-size * $hover-transition-factor;
+    height: $card-height * $hover-transition-factor;
+    width: $card-width * $hover-transition-factor;
+    @include drop-shadow($drop-shadow-up);
+    h3 {
+      font-size: $card-title-font-size * $hover-transition-factor;
+    }
+  }
+}
+.background-banner {
+  height: 20%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: darken(red, 10%);
+  z-index: 0;
 }
 .card-container {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -23,7 +55,7 @@
 
 // TODO - This is the break point from HTML 5 boilerplate. How can we turn this into a variable and also make sure that it tracks what's in main.css?
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: $media-break-intermediate) {
 
   header {
     h1 {

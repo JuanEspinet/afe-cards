@@ -172,7 +172,7 @@ nav a:hover {
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: $media-break-intermediate) {
 
 /* ====================
     INTERMEDIATE: Menu
@@ -207,7 +207,7 @@ nav a:hover {
     }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: $media-break-wide) {
 
 /* ====================
     WIDE: CSS3 Effects
@@ -215,9 +215,7 @@ nav a:hover {
 
     .header-container,
     .main aside {
-        -webkit-box-shadow: 0 5px 10px #aaa;
-           -moz-box-shadow: 0 5px 10px #aaa;
-                box-shadow: 0 5px 10px #aaa;
+        @include drop-shadow($drop-shadow-low);
     }
 
 /* ============
@@ -248,7 +246,7 @@ nav a:hover {
     }
 }
 
-@media only screen and (min-width: 1140px) {
+@media only screen and (min-width: $media-break-maximal) {
 
 /* ===============
     Maximal Width

@@ -2,6 +2,12 @@ $media-break-intermediate: 480px;
 $media-break-wide: 768px;
 $media-break-maximal: 1140px;
 
+// This variable is used for elements that change size on hover to dictate how great the change is
+$hover-transition-factor: 1.03;
+
+$drop-shadow-low: 2px 2px 10px #aaa;
+$drop-shadow-up: (5px * $hover-transition-factor * 1.5) (5px * $hover-transition-factor * 1.5) 20px #aaa;
+
 $card-background-color: #abc;
 $card-border: 1px solid black;
 $card-height: 10rem;
@@ -9,7 +15,9 @@ $card-margin: 1rem 1rem 1rem 0;
 $card-padding: 5px;
 $card-width: 10rem;
 $card-banner-color: black;
+$card-paragraph-font-size: 1rem;
 $card-title-font: Arial, Helvetica, sans-serif;
+$card-title-font-size: $card-paragraph-font-size * 1.5;
 $card-title-color: black;
 
 $menu-items: 6;
