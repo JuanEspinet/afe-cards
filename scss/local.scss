@@ -1,26 +1,102 @@
-@import "components/variables";
 @import "components/functions";
+@import "components/variables";
 @import "components/mixin";
 @import "main";
 
+/* ===================
+    ALL: Color Theme
+   =================== */
+body {
+  background-color: $body-background-color;
+}
 
+.header-container {
+    border-bottom: $header-footer-border;
+}
+
+.footer-container,
+.main aside {
+    border-top: $header-footer-border;
+}
+
+.header-container,
+.footer-container,
+.main aside {
+    background: $header-background-color;
+}
+
+.title {
+    color: white;
+}
+
+/* ==============
+    MOBILE: Main
+   ============== */
+
+.main {
+    padding: 30px 0;
+    article h1 {
+        font-size: 2em;
+    }
+    aside {
+        color: white;
+        padding: 0px 5% 10px;
+    }
+}
+
+.footer-container footer {
+    color: white;
+    padding: 20px 0;
+}
+
+/* ==============
+    MOBILE: Menu
+   ============== */
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav a {
+    display: block;
+    margin-bottom: 10px;
+    padding: 15px 0;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+
+    color: $nav-text-color;
+    background: $nav-button-color;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:visited {
+      color: $nav-text-color;
+    }
+}
+
+// Styles for cards and sections
 .card {
   @include drop-shadow($drop-shadow-low);
   background-color: $card-background-color;
   border: $card-border;
+  border-radius: $card-border-radius;
   height: $card-height;
   margin: $card-margin;
   padding: $card-padding;
   width: $card-width;
   font-size: $card-paragraph-font-size;
-  transition: all 0.75s ease;
+  transition: $card-transition;
   position: relative;
   h3 {
     font-size: $card-title-font-size;
-    transition: all 0.75s ease;
+    transition: $card-transition;
     position: relative;
-    margin-top: 0.1rem;
-    z-index: 1;
+    margin-top: $h3-margin-top;
+    z-index: $h3-z-index;
   }
   &:hover {
     font-size: $card-paragraph-font-size * $hover-transition-factor;
@@ -32,14 +108,21 @@
     }
   }
 }
+//Styles card background banners
+@each $section, $color in $card-banner-colors {
+  .#{$section} .background-banner {
+    background-color: $color;
+  }
+}
 .background-banner {
-  height: 20%;
-  width: 100%;
-  position: absolute;
-  top: 0;
+  border-top-left-radius: $card-border-radius;
+  border-top-right-radius: $card-border-radius;
+  height: $card-banner-height;
+  width: $card-banner-width;
+  position: $card-banner-position;
+  top: $card-banner-top;
   left: 0;
-  background-color: darken(red, 10%);
-  z-index: 0;
+  z-index: $card-banner-z;
 }
 .card-container {
   align-items: center;

@@ -1,26 +1,64 @@
+// Color Palette
+$color-lightgreen: #cbe896; //rgba(203, 232, 150, 100) - Light green
+$color-teal: #aac0aa; //rgba(170, 192, 170, 100) - Teal
+$color-beige: #fcdfa6; //rgba(252, 223, 166, 100) - Beige
+$color-palebrown: #a18276; //rgba(161, 130, 118, 100) - Pale Brown
+$color-lightorange: #f4b886; //rgba(244, 184, 134, 100) - Light orange
+
+// Body styles
+$body-background-color: $color-beige;
+
+// Screen size break points
 $media-break-intermediate: 480px;
 $media-break-wide: 768px;
 $media-break-maximal: 1140px;
 
-// This variable is used for elements that change size on hover to dictate how great the change is
+// Header variables
+$header-footer-border: 20px solid $color-palebrown;
+$header-background-color: $color-lightorange;
+
+  // Nav menu vars
+  $nav-text-color: white;
+  $nav-button-color: $color-palebrown;
+
+// This variable is used for elements that change size on hover to dictate how great the change in size is
 $hover-transition-factor: 1.03;
 
-$drop-shadow-low: 2px 2px 10px #aaa;
-$drop-shadow-up: (5px * $hover-transition-factor * 1.5) (5px * $hover-transition-factor * 1.5) 20px #aaa;
 
-$card-background-color: #abc;
-$card-border: 1px solid black;
+$drop-shadow-low: dpToRem(2) dpToRem(2) 10px #aaa;
+$drop-shadow-up: dpToRem(8) dpToRem(8) 20px #aaa;
+
+$card-background-color: lighten($color-beige, 10%);
+$card-border: none;
+$card-border-radius: (4rem / 16);
 $card-height: 10rem;
 $card-margin: 1rem 1rem 1rem 0;
 $card-padding: 5px;
 $card-width: 10rem;
-$card-banner-color: black;
 $card-paragraph-font-size: 1rem;
 $card-title-font: Arial, Helvetica, sans-serif;
 $card-title-font-size: $card-paragraph-font-size * 1.5;
 $card-title-color: black;
+$card-transition: all 0.75s ease;
+// Styles for colored card banner
+  $card-banner-colors: (
+    learning: darken($color-lightgreen, 10%),
+    html: darken($color-teal, 10%),
+    css: darken($color-beige, 10%),
+    javascript: darken($color-lightorange, 10%),
+    tools: lighten($color-palebrown, 10%)
+  );
+  $card-banner-height: 20%;
+  $card-banner-width: 100%;
+  $card-banner-position: absolute;
+  $card-banner-top: 0;
+  $card-banner-z: 0;
+
+$h3-margin-top: 0.1rem;
+$h3-z-index: 1;
 
 $menu-items: 6;
+
 $nav-item-margin: 0 1rem 0 0;
 $nav-item-padding: .5rem;
 $nav-margin: 0 0 0 1rem;
