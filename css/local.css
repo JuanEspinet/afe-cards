@@ -52,23 +52,6 @@ body {
   width: 90%;
   margin: 0 5%; }
 
-/* ==============
-    MOBILE: Main
-   ============== */
-.main {
-  padding: 30px 0; }
-
-.main article h1 {
-  font-size: 2em; }
-
-.main aside {
-  color: white;
-  padding: 0px 5% 10px; }
-
-.footer-container footer {
-  color: white;
-  padding: 20px 0; }
-
 /* ===============
     ALL: IE Fixes
    =============== */
@@ -109,9 +92,9 @@ body {
    ==================== */
   .header-container,
   .main aside {
-    -webkit-box-shadow: 0.125rem 0.125rem 10px #aaa;
-    -moz-box-shadow: 0.125rem 0.125rem 10px #aaa;
-    box-shadow: 0.125rem 0.125rem 10px #aaa; }
+    -webkit-box-shadow: 0.125rem 0.125rem 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0.125rem 0.125rem 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0.125rem 0.125rem 10px rgba(0, 0, 0, 0.5); }
   /* ============
     WIDE: Menu
    ============ */
@@ -241,6 +224,51 @@ body {
 .title {
   color: white; }
 
+nav a[href="#learning"] {
+  background-color: #b6df6c; }
+
+.learning .background-banner {
+  background-color: #b6df6c; }
+
+.learning button {
+  background-color: #b6df6c; }
+
+nav a[href="#html"] {
+  background-color: #8daa8d; }
+
+.html .background-banner {
+  background-color: #8daa8d; }
+
+.html button {
+  background-color: #8daa8d; }
+
+nav a[href="#css"] {
+  background-color: #facd75; }
+
+.css .background-banner {
+  background-color: #facd75; }
+
+.css button {
+  background-color: #facd75; }
+
+nav a[href="#javascript"] {
+  background-color: #f09d57; }
+
+.javascript .background-banner {
+  background-color: #f09d57; }
+
+.javascript button {
+  background-color: #f09d57; }
+
+nav a[href="#tools"] {
+  background-color: #b69e94; }
+
+.tools .background-banner {
+  background-color: #b69e94; }
+
+.tools button {
+  background-color: #b69e94; }
+
 /* ==============
     MOBILE: Main
    ============== */
@@ -271,17 +299,25 @@ nav a {
   text-align: center;
   text-decoration: none;
   font-weight: bold;
-  color: white;
-  background: #a18276; }
+  color: white; }
   nav a:hover {
     text-decoration: underline; }
   nav a:visited {
     color: white; }
 
+/* =================
+  SECTIONS/CARDS ALL
+   =================*/
+.card-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
 .card {
-  -webkit-box-shadow: 0.125rem 0.125rem 10px #aaa;
-  -moz-box-shadow: 0.125rem 0.125rem 10px #aaa;
-  box-shadow: 0.125rem 0.125rem 10px #aaa;
+  -webkit-box-shadow: 0.125rem 0.125rem 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0.125rem 0.125rem 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0.125rem 0.125rem 10px rgba(0, 0, 0, 0.5);
   background-color: #fef1d7;
   border: none;
   border-radius: 0.25rem;
@@ -302,26 +338,11 @@ nav a {
     font-size: 1.03rem;
     height: 10.3rem;
     width: 10.3rem;
-    -webkit-box-shadow: 0.5rem 0.5rem 20px #aaa;
-    -moz-box-shadow: 0.5rem 0.5rem 20px #aaa;
-    box-shadow: 0.5rem 0.5rem 20px #aaa; }
+    -webkit-box-shadow: 0.5rem 0.5rem 20px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0.5rem 0.5rem 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0.5rem 0.5rem 20px rgba(0, 0, 0, 0.5); }
     .card:hover h3 {
       font-size: 1.545rem; }
-
-.learning .background-banner {
-  background-color: #b6df6c; }
-
-.html .background-banner {
-  background-color: #8daa8d; }
-
-.css .background-banner {
-  background-color: #facd75; }
-
-.javascript .background-banner {
-  background-color: #f09d57; }
-
-.tools .background-banner {
-  background-color: #b69e94; }
 
 .background-banner {
   border-top-left-radius: 0.25rem;
@@ -333,11 +354,8 @@ nav a {
   left: 0;
   z-index: 0; }
 
-.card-container {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; }
+.card-description {
+  display: none; }
 
 /* ==========================================================================
    Media Queries

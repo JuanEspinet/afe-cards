@@ -24,9 +24,18 @@ $header-background-color: $color-lightorange;
 // This variable is used for elements that change size on hover to dictate how great the change in size is
 $hover-transition-factor: 1.03;
 
+$drop-shadow-color: transparentize(black, .5);
+$drop-shadow-low: dpToRem(2) dpToRem(2) 10px $drop-shadow-color;
+$drop-shadow-up: dpToRem(8) dpToRem(8) 20px $drop-shadow-color;
 
-$drop-shadow-low: dpToRem(2) dpToRem(2) 10px #aaa;
-$drop-shadow-up: dpToRem(8) dpToRem(8) 20px #aaa;
+// Section styles
+$section-colors: (
+  learning: darken($color-lightgreen, 10%),
+  html: darken($color-teal, 10%),
+  css: darken($color-beige, 10%),
+  javascript: darken($color-lightorange, 10%),
+  tools: lighten($color-palebrown, 10%)
+);
 
 $card-background-color: lighten($color-beige, 10%);
 $card-border: none;
@@ -36,18 +45,13 @@ $card-margin: 1rem 1rem 1rem 0;
 $card-padding: 5px;
 $card-width: 10rem;
 $card-paragraph-font-size: 1rem;
+// Card title settings
 $card-title-font: Arial, Helvetica, sans-serif;
 $card-title-font-size: $card-paragraph-font-size * 1.5;
 $card-title-color: black;
+// Transition settings for hover state changes
 $card-transition: all 0.75s ease;
 // Styles for colored card banner
-  $card-banner-colors: (
-    learning: darken($color-lightgreen, 10%),
-    html: darken($color-teal, 10%),
-    css: darken($color-beige, 10%),
-    javascript: darken($color-lightorange, 10%),
-    tools: lighten($color-palebrown, 10%)
-  );
   $card-banner-height: 20%;
   $card-banner-width: 100%;
   $card-banner-position: absolute;

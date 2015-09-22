@@ -28,6 +28,19 @@ body {
 .title {
     color: white;
 }
+@each $section, $color in $section-colors {
+  nav a[href="##{$section}"] {
+    background-color: $color;
+  }
+  .#{$section} {
+    .background-banner {
+      background-color: $color;
+    }
+    button {
+      background-color: $color;
+    }
+  }
+}
 
 /* ==============
     MOBILE: Main
@@ -53,13 +66,13 @@ body {
     MOBILE: Menu
    ============== */
 
-nav ul {
+nav {
+  ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
-}
-
-nav a {
+  }
+  a {
     display: block;
     margin-bottom: 10px;
     padding: 15px 0;
@@ -69,16 +82,25 @@ nav a {
     font-weight: bold;
 
     color: $nav-text-color;
-    background: $nav-button-color;
-    &:hover {
-      text-decoration: underline;
-    }
-    &:visited {
-      color: $nav-text-color;
+    //background: $nav-button-color;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:visited {
+        color: $nav-text-color;
+      }
     }
 }
+/* =================
+  SECTIONS/CARDS ALL
+   =================*/
+.card-container {
+   align-items: center;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
 
-// Styles for cards and sections
+}
 .card {
   @include drop-shadow($drop-shadow-low);
   background-color: $card-background-color;
@@ -108,12 +130,8 @@ nav a {
     }
   }
 }
-//Styles card background banners
-@each $section, $color in $card-banner-colors {
-  .#{$section} .background-banner {
-    background-color: $color;
-  }
-}
+//Card elements
+  //Background banners
 .background-banner {
   border-top-left-radius: $card-border-radius;
   border-top-right-radius: $card-border-radius;
@@ -124,13 +142,13 @@ nav a {
   left: 0;
   z-index: $card-banner-z;
 }
-.card-container {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  // Summary Text
+  // Detailed description
+  .card-description {
+    // Substitute later with styles for display animation.
+    display: none;
+  }
 
-}
 
 /* ==========================================================================
    Media Queries
