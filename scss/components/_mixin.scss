@@ -1,0 +1,6 @@
+// Defines a drop shadow for items just above the page
+@mixin drop-shadow($shadow-settings) {
+  -webkit-box-shadow: $shadow-settings;
+     -moz-box-shadow: $shadow-settings;
+          box-shadow: $shadow-settings;
+}

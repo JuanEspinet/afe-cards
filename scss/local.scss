@@ -1,20 +1,197 @@
+@import "components/functions";
 @import "components/variables";
+@import "components/mixin";
+@import "main";
 
-.card {
-  background-color: $card-background-color;
-  border: $card-border;
-  height: $card-height;
+#nomargin {
+  margin: 0;
+}
+/* ===================
+    ALL: Color Theme
+   =================== */
+body {
+  background-color: $body-background-color;
+}
+
+.header-container {
+    border-bottom: $header-footer-border;
+}
+
+.footer-container,
+.main aside {
+    border-top: $header-footer-border;
+}
+
+.header-container,
+.footer-container,
+.main aside {
+    background: $header-background-color;
+}
+
+.title {
+    color: white;
+}
+@each $section, $color in $section-colors {
+  nav a[href="##{$section}"] {
+    background-color: $color;
+  }
+  .#{$section} {
+    .background-banner {
+      background-color: $color;
+    }
+    a:hover {
+      background-color: $color;
+    }
+    a:focus {
+      background-color: darken($color, 5%);
+    }
+    a:active {
+      background-color: darken($color, 10%);
+    }
+    .card-description {
+      background-color: lighten($color, 5%);
+    }
+  }
+}
+
+/* ==============
+    MOBILE: Main
+   ============== */
+
+.main {
+    padding: 30px 0;
+    article h1 {
+        font-size: 2em;
+    }
+    aside {
+        color: white;
+        padding: 0px 5% 10px;
+    }
+}
+
+.footer-container footer {
+    color: white;
+    padding: 20px 0;
+}
+
+/* ==============
+    MOBILE: Menu
+   ============== */
+
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  a {
+    display: block;
+    margin-bottom: 10px;
+    padding: 15px 0;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+
+    color: $nav-text-color;
+    //background: $nav-button-color;
+      &:hover {
+        text-decoration: underline;
+      }
+      &:visited {
+        color: $nav-text-color;
+      }
+    }
+}
+/* =================
+  SECTIONS/CARDS ALL
+   =================*/
+.card-container {
+   align-items: center;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+
+}
+// This card holder is necessary to make the card description hide behind the front card nicely
+.card-holder {
+  position: relative;
   margin: $card-margin;
   padding: $card-padding;
+}
+.card {
+  @include drop-shadow($drop-shadow-low);
+  background-color: $card-background-color;
+  border: $card-border;
+  border-radius: $card-border-radius;
+  height: $card-height;
   width: $card-width;
+  font-size: $card-paragraph-font-size;
+  transition: $card-transition;
+  position: relative;
+  z-index: $card-z;
+  h3 {
+    @extend #nomargin;
+    font-size: $card-title-font-size;
+    transition: $card-transition;
+    top: $h3-top;
+    left: $h3-left;
+    position: relative;
+    z-index: $h3-z-index;
+  }
+  p {
+    margin-left: 5%;
+  }
+  &:hover, .open & {
+    font-size: $card-paragraph-font-size * $hover-transition-factor;
+    height: $card-height * $hover-transition-factor;
+    width: $card-width * $hover-transition-factor;
+    @include drop-shadow($drop-shadow-up);
+    h3 {
+      font-size: $card-title-font-size * $hover-transition-factor;
+    }
+  }
 }
-.card-container {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+//Card elements
+  //Background banners
+.background-banner {
+  border-top-left-radius: $card-border-radius;
+  border-top-right-radius: $card-border-radius;
+  height: $card-banner-height;
+  width: $card-banner-width;
+  position: $card-banner-position;
+  top: $card-banner-top;
+  left: 0;
+  z-index: $card-banner-z;
+}
+//Buttons
+.card-description-button {
+  border-radius: $card-button-border;
+  padding: $card-button-padding;
+  text-decoration: none;
+  color: $body-text-color;
+}
+// Summary Text
+// Detailed description card, hides behind other card and reveals with javascript function
+.card-description {
+  @include drop-shadow($drop-shadow-low);
+  height: $card-description-height;
+  width: $card-description-width;
+  border-radius: $card-description-bradius;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: $card-description-z;
+  transition: $card-description-transition;
+  p {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .open & {
+    top: 100%;
+  }
+}
 
-}
 
 /* ==========================================================================
    Media Queries
@@ -22,7 +199,7 @@
 
 // TODO - This is the break point from HTML 5 boilerplate. How can we turn this into a variable and also make sure that it tracks what's in main.css?
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: $media-break-intermediate) {
 
   header {
     h1 {

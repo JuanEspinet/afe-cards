@@ -1,0 +1,35 @@
+{
+  "name": "afe-cards",
+  "version": "1.0.0",
+  "description": "card styling project for advanced front end",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanEspinet/afe-cards.git"
+  },
+  "keywords": [
+    "afe",
+    "cards",
+    "\"material",
+    "design\"",
+    "\"advanced",
+    "front",
+    "end\"",
+    "glossary"
+  ],
+  "author": "Juan Espinet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuanEspinet/afe-cards/issues"
+  },
+  "homepage": "https://github.com/JuanEspinet/afe-cards#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.0.4"
+  }
+}
