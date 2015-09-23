@@ -92,9 +92,9 @@ body {
    ==================== */
   .header-container,
   .main aside {
-    -webkit-box-shadow: 0.125rem 0.125rem 10px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0.125rem 0.125rem 10px rgba(0, 0, 0, 0.5);
-    box-shadow: 0.125rem 0.125rem 10px rgba(0, 0, 0, 0.5); }
+    -webkit-box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5); }
   /* ============
     WIDE: Menu
    ============ */
@@ -203,6 +203,9 @@ body {
   h3 {
     page-break-after: avoid; } }
 
+#nomargin, .card h3 {
+  margin: 0; }
+
 /* ===================
     ALL: Color Theme
    =================== */
@@ -230,8 +233,17 @@ nav a[href="#learning"] {
 .learning .background-banner {
   background-color: #b6df6c; }
 
-.learning button {
+.learning a:hover {
   background-color: #b6df6c; }
+
+.learning a:focus {
+  background-color: #acda57; }
+
+.learning a:active {
+  background-color: #a2d642; }
+
+.learning .card-description {
+  background-color: #c1e381; }
 
 nav a[href="#html"] {
   background-color: #8daa8d; }
@@ -239,8 +251,17 @@ nav a[href="#html"] {
 .html .background-banner {
   background-color: #8daa8d; }
 
-.html button {
+.html a:hover {
   background-color: #8daa8d; }
+
+.html a:focus {
+  background-color: #7e9f7e; }
+
+.html a:active {
+  background-color: #6f956f; }
+
+.html .card-description {
+  background-color: #9bb59b; }
 
 nav a[href="#css"] {
   background-color: #facd75; }
@@ -248,8 +269,17 @@ nav a[href="#css"] {
 .css .background-banner {
   background-color: #facd75; }
 
-.css button {
+.css a:hover {
   background-color: #facd75; }
+
+.css a:focus {
+  background-color: #fac45c; }
+
+.css a:active {
+  background-color: #f9bc43; }
+
+.css .card-description {
+  background-color: #fbd68d; }
 
 nav a[href="#javascript"] {
   background-color: #f09d57; }
@@ -257,8 +287,17 @@ nav a[href="#javascript"] {
 .javascript .background-banner {
   background-color: #f09d57; }
 
-.javascript button {
+.javascript a:hover {
   background-color: #f09d57; }
+
+.javascript a:focus {
+  background-color: #ee8f40; }
+
+.javascript a:active {
+  background-color: #ec8128; }
+
+.javascript .card-description {
+  background-color: #f2aa6f; }
 
 nav a[href="#tools"] {
   background-color: #b69e94; }
@@ -266,8 +305,17 @@ nav a[href="#tools"] {
 .tools .background-banner {
   background-color: #b69e94; }
 
-.tools button {
+.tools a:hover {
   background-color: #b69e94; }
+
+.tools a:focus {
+  background-color: #ab9085; }
+
+.tools a:active {
+  background-color: #a18276; }
+
+.tools .card-description {
+  background-color: #c0aba3; }
 
 /* ==============
     MOBILE: Main
@@ -314,34 +362,41 @@ nav a {
   flex-direction: row;
   flex-wrap: wrap; }
 
+.card-holder {
+  position: relative;
+  margin: 1rem 1rem 1rem 0;
+  padding: 5px; }
+
 .card {
-  -webkit-box-shadow: 0.125rem 0.125rem 10px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0.125rem 0.125rem 10px rgba(0, 0, 0, 0.5);
-  box-shadow: 0.125rem 0.125rem 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
   background-color: #fef1d7;
   border: none;
   border-radius: 0.25rem;
   height: 10rem;
-  margin: 1rem 1rem 1rem 0;
-  padding: 5px;
   width: 10rem;
   font-size: 1rem;
   transition: all 0.75s ease;
-  position: relative; }
+  position: relative;
+  z-index: 5; }
   .card h3 {
     font-size: 1.5rem;
     transition: all 0.75s ease;
+    top: 3%;
+    left: 5%;
     position: relative;
-    margin-top: 0.1rem;
-    z-index: 1; }
-  .card:hover {
+    z-index: 7; }
+  .card p {
+    margin-left: 5%; }
+  .card:hover, .open .card {
     font-size: 1.03rem;
     height: 10.3rem;
     width: 10.3rem;
-    -webkit-box-shadow: 0.5rem 0.5rem 20px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0.5rem 0.5rem 20px rgba(0, 0, 0, 0.5);
-    box-shadow: 0.5rem 0.5rem 20px rgba(0, 0, 0, 0.5); }
-    .card:hover h3 {
+    -webkit-box-shadow: 0.5rem 0.5rem 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0.5rem 0.5rem 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0.5rem 0.5rem 10px rgba(0, 0, 0, 0.5); }
+    .card:hover h3, .open .card h3 {
       font-size: 1.545rem; }
 
 .background-banner {
@@ -352,10 +407,31 @@ nav a {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0; }
+  z-index: 5; }
+
+.card-description-button {
+  border-radius: 0.1875rem;
+  padding: 0.25rem;
+  text-decoration: none;
+  color: #0d0d0d; }
 
 .card-description {
-  display: none; }
+  -webkit-box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
+  height: 9.5rem;
+  width: 9.5rem;
+  border-radius: 0.25rem;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 3;
+  transition: top 0.3s cubic-bezier(0.5, 0, 0.5, 1) 0.15s; }
+  .card-description p {
+    margin-left: 5%;
+    margin-right: 5%; }
+  .open .card-description {
+    top: 100%; }
 
 /* ==========================================================================
    Media Queries

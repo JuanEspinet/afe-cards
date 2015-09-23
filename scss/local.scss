@@ -3,6 +3,9 @@
 @import "components/mixin";
 @import "main";
 
+#nomargin {
+  margin: 0;
+}
 /* ===================
     ALL: Color Theme
    =================== */
@@ -36,8 +39,17 @@ body {
     .background-banner {
       background-color: $color;
     }
-    button {
+    a:hover {
       background-color: $color;
+    }
+    a:focus {
+      background-color: darken($color, 5%);
+    }
+    a:active {
+      background-color: darken($color, 10%);
+    }
+    .card-description {
+      background-color: lighten($color, 5%);
     }
   }
 }
@@ -101,26 +113,36 @@ nav {
    flex-wrap: wrap;
 
 }
+// This card holder is necessary to make the card description hide behind the front card nicely
+.card-holder {
+  position: relative;
+  margin: $card-margin;
+  padding: $card-padding;
+}
 .card {
   @include drop-shadow($drop-shadow-low);
   background-color: $card-background-color;
   border: $card-border;
   border-radius: $card-border-radius;
   height: $card-height;
-  margin: $card-margin;
-  padding: $card-padding;
   width: $card-width;
   font-size: $card-paragraph-font-size;
   transition: $card-transition;
   position: relative;
+  z-index: $card-z;
   h3 {
+    @extend #nomargin;
     font-size: $card-title-font-size;
     transition: $card-transition;
+    top: $h3-top;
+    left: $h3-left;
     position: relative;
-    margin-top: $h3-margin-top;
     z-index: $h3-z-index;
   }
-  &:hover {
+  p {
+    margin-left: 5%;
+  }
+  &:hover, .open & {
     font-size: $card-paragraph-font-size * $hover-transition-factor;
     height: $card-height * $hover-transition-factor;
     width: $card-width * $hover-transition-factor;
@@ -142,12 +164,33 @@ nav {
   left: 0;
   z-index: $card-banner-z;
 }
-  // Summary Text
-  // Detailed description
-  .card-description {
-    // Substitute later with styles for display animation.
-    display: none;
+//Buttons
+.card-description-button {
+  border-radius: $card-button-border;
+  padding: $card-button-padding;
+  text-decoration: none;
+  color: $body-text-color;
+}
+// Summary Text
+// Detailed description card, hides behind other card and reveals with javascript function
+.card-description {
+  @include drop-shadow($drop-shadow-low);
+  height: $card-description-height;
+  width: $card-description-width;
+  border-radius: $card-description-bradius;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: $card-description-z;
+  transition: $card-description-transition;
+  p {
+    margin-left: 5%;
+    margin-right: 5%;
   }
+  .open & {
+    top: 100%;
+  }
+}
 
 
 /* ==========================================================================

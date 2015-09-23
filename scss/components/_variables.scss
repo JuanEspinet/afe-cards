@@ -7,6 +7,7 @@ $color-lightorange: #f4b886; //rgba(244, 184, 134, 100) - Light orange
 
 // Body styles
 $body-background-color: $color-beige;
+$body-text-color: lighten(black, 5%);
 
 // Screen size break points
 $media-break-intermediate: 480px;
@@ -18,15 +19,22 @@ $header-footer-border: 20px solid $color-palebrown;
 $header-background-color: $color-lightorange;
 
   // Nav menu vars
+  $menu-items: 6;
   $nav-text-color: white;
   $nav-button-color: $color-palebrown;
+  $nav-item-margin: 0 1rem 0 0;
+  $nav-item-padding: .5rem;
+  $nav-margin: 0 0 0 1rem;
+  $nav-title-margin: 0.5rem 0.5rem 0.5rem 0;
+  $nav-width: 100%;
+  $nav-item-width: $nav-width / $menu-items;
 
 // This variable is used for elements that change size on hover to dictate how great the change in size is
 $hover-transition-factor: 1.03;
 
 $drop-shadow-color: transparentize(black, .5);
-$drop-shadow-low: dpToRem(2) dpToRem(2) 10px $drop-shadow-color;
-$drop-shadow-up: dpToRem(8) dpToRem(8) 20px $drop-shadow-color;
+$drop-shadow-low: dpToRem(2) dpToRem(2) 5px $drop-shadow-color;
+$drop-shadow-up: dpToRem(8) dpToRem(8) 10px $drop-shadow-color;
 
 // Section styles
 $section-colors: (
@@ -39,12 +47,16 @@ $section-colors: (
 
 $card-background-color: lighten($color-beige, 10%);
 $card-border: none;
-$card-border-radius: (4rem / 16);
+$card-border-radius: dpToRem(4);
 $card-height: 10rem;
 $card-margin: 1rem 1rem 1rem 0;
 $card-padding: 5px;
 $card-width: 10rem;
+$card-z: 5;
 $card-paragraph-font-size: 1rem;
+$card-button-border: dpToRem(3);
+$card-button-padding: .25rem;
+$card-button-position: ;
 // Card title settings
 $card-title-font: Arial, Helvetica, sans-serif;
 $card-title-font-size: $card-paragraph-font-size * 1.5;
@@ -52,20 +64,21 @@ $card-title-color: black;
 // Transition settings for hover state changes
 $card-transition: all 0.75s ease;
 // Styles for colored card banner
-  $card-banner-height: 20%;
-  $card-banner-width: 100%;
-  $card-banner-position: absolute;
-  $card-banner-top: 0;
-  $card-banner-z: 0;
+$card-banner-height: 20%;
+$card-banner-width: 100%;
+$card-banner-position: absolute;
+$card-banner-top: 0;
+$card-banner-z: 5;
+// Description card - hidden until show more button is clicked
+$card-description-size-factor: 0.95;
+$card-description-height: $card-height * $card-description-size-factor;
+$card-description-width: $card-height * $card-description-size-factor;
+$card-description-bradius: $card-border-radius;
+$card-description-padding: $card-padding * $card-description-size-factor;
+$card-desc-trans-delay: 0.15s;
+$card-description-transition: top 0.3s cubic-bezier(0.5, 0, 0.5,1) $card-desc-trans-delay;
+$card-description-z: 3;
 
-$h3-margin-top: 0.1rem;
-$h3-z-index: 1;
-
-$menu-items: 6;
-
-$nav-item-margin: 0 1rem 0 0;
-$nav-item-padding: .5rem;
-$nav-margin: 0 0 0 1rem;
-$nav-title-margin: 0.5rem 0.5rem 0.5rem 0;
-$nav-width: 100%;
-$nav-item-width: $nav-width / $menu-items;
+$h3-top: 3%;
+$h3-left: 5%;
+$h3-z-index: 7;
