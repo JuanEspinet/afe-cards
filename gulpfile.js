@@ -9,6 +9,11 @@ gulp.task('styles', function() {
 		notify().write(err);
 		this.emit('end');
 	}))
+	.pipe(autoprefixer()
+	.on('error', function(err) {
+		notify().write(err);
+		this.emit('end');
+	}))
 	.pipe(gulp.dest('./css'))
 	.pipe(notify('It worked!'));
 });

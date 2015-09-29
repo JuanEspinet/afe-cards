@@ -92,8 +92,6 @@ body {
    ==================== */
   .header-container,
   .main aside {
-    -webkit-box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
     box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5); }
   /* ============
     WIDE: Menu
@@ -203,7 +201,7 @@ body {
   h3 {
     page-break-after: avoid; } }
 
-#nomargin, .card h3 {
+.card h3 {
   margin: 0; }
 
 /* ===================
@@ -233,11 +231,8 @@ nav a[href="#learning"] {
 .learning .background-banner {
   background-color: #b6df6c; }
 
-.learning a:hover {
-  background-color: #b6df6c; }
-
-.learning a:focus {
-  background-color: #acda57; }
+.learning a:hover, .learning a:focus {
+  background-color: #d5edab; }
 
 .learning a:active {
   background-color: #a2d642; }
@@ -251,11 +246,8 @@ nav a[href="#html"] {
 .html .background-banner {
   background-color: #8daa8d; }
 
-.html a:hover {
-  background-color: #8daa8d; }
-
-.html a:focus {
-  background-color: #7e9f7e; }
+.html a:hover, .html a:focus {
+  background-color: #b9cbb9; }
 
 .html a:active {
   background-color: #6f956f; }
@@ -269,11 +261,8 @@ nav a[href="#css"] {
 .css .background-banner {
   background-color: #facd75; }
 
-.css a:hover {
-  background-color: #facd75; }
-
-.css a:focus {
-  background-color: #fac45c; }
+.css a:hover, .css a:focus {
+  background-color: #fde8bf; }
 
 .css a:active {
   background-color: #f9bc43; }
@@ -287,11 +276,8 @@ nav a[href="#javascript"] {
 .javascript .background-banner {
   background-color: #f09d57; }
 
-.javascript a:hover {
-  background-color: #f09d57; }
-
-.javascript a:focus {
-  background-color: #ee8f40; }
+.javascript a:hover, .javascript a:focus {
+  background-color: #f6c69d; }
 
 .javascript a:active {
   background-color: #ec8128; }
@@ -305,11 +291,8 @@ nav a[href="#tools"] {
 .tools .background-banner {
   background-color: #b69e94; }
 
-.tools a:hover {
-  background-color: #b69e94; }
-
-.tools a:focus {
-  background-color: #ab9085; }
+.tools a:hover, .tools a:focus {
+  background-color: #d5c7c2; }
 
 .tools a:active {
   background-color: #a18276; }
@@ -357,19 +340,81 @@ nav a {
   SECTIONS/CARDS ALL
    =================*/
 .card-container {
-  align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+
+section .card-holder:nth-of-type(1) h3 {
+  z-index: 100; }
+
+section .card-holder:nth-of-type(1) .background-banner, section .card-holder:nth-of-type(1) .card {
+  z-index: 99; }
+
+section .card-holder:nth-of-type(1) .card-description {
+  z-index: 98; }
+
+section .card-holder:nth-of-type(2) h3 {
+  z-index: 97; }
+
+section .card-holder:nth-of-type(2) .background-banner, section .card-holder:nth-of-type(2) .card {
+  z-index: 96; }
+
+section .card-holder:nth-of-type(2) .card-description {
+  z-index: 95; }
+
+section .card-holder:nth-of-type(3) h3 {
+  z-index: 94; }
+
+section .card-holder:nth-of-type(3) .background-banner, section .card-holder:nth-of-type(3) .card {
+  z-index: 93; }
+
+section .card-holder:nth-of-type(3) .card-description {
+  z-index: 92; }
+
+section .card-holder:nth-of-type(4) h3 {
+  z-index: 91; }
+
+section .card-holder:nth-of-type(4) .background-banner, section .card-holder:nth-of-type(4) .card {
+  z-index: 90; }
+
+section .card-holder:nth-of-type(4) .card-description {
+  z-index: 89; }
+
+section .card-holder:nth-of-type(5) h3 {
+  z-index: 88; }
+
+section .card-holder:nth-of-type(5) .background-banner, section .card-holder:nth-of-type(5) .card {
+  z-index: 87; }
+
+section .card-holder:nth-of-type(5) .card-description {
+  z-index: 86; }
 
 .card-holder {
   position: relative;
   margin: 1rem 1rem 1rem 0;
-  padding: 5px; }
+  padding: 5px;
+  -webkit-transition: all 0.75s ease;
+          transition: all 0.75s ease; }
+  .card-holder:hover {
+    margin: 0.85rem 0.7rem 0.85rem 0; }
+
+.open {
+  margin: 0.85rem 0.7rem 0.85rem 0; }
 
 .card {
-  -webkit-box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
   box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
   background-color: #fef1d7;
   border: none;
@@ -377,24 +422,22 @@ nav a {
   height: 10rem;
   width: 10rem;
   font-size: 1rem;
-  transition: all 0.75s ease;
-  position: relative;
-  z-index: 5; }
+  -webkit-transition: all 0.75s ease;
+          transition: all 0.75s ease;
+  position: relative; }
   .card h3 {
     font-size: 1.5rem;
-    transition: all 0.75s ease;
+    -webkit-transition: all 0.75s ease;
+            transition: all 0.75s ease;
     top: 3%;
     left: 5%;
-    position: relative;
-    z-index: 7; }
+    position: relative; }
   .card p {
     margin-left: 5%; }
   .card:hover, .open .card {
     font-size: 1.03rem;
     height: 10.3rem;
     width: 10.3rem;
-    -webkit-box-shadow: 0.5rem 0.5rem 10px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0.5rem 0.5rem 10px rgba(0, 0, 0, 0.5);
     box-shadow: 0.5rem 0.5rem 10px rgba(0, 0, 0, 0.5); }
     .card:hover h3, .open .card h3 {
       font-size: 1.545rem; }
@@ -406,8 +449,7 @@ nav a {
   width: 100%;
   position: absolute;
   top: 0;
-  left: 0;
-  z-index: 5; }
+  left: 0; }
 
 .card-description-button {
   border-radius: 0.1875rem;
@@ -416,8 +458,6 @@ nav a {
   color: #0d0d0d; }
 
 .card-description {
-  -webkit-box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
   box-shadow: 0.125rem 0.125rem 5px rgba(0, 0, 0, 0.5);
   height: 9.5rem;
   width: 9.5rem;
@@ -425,8 +465,8 @@ nav a {
   position: absolute;
   top: 5%;
   left: 5%;
-  z-index: 3;
-  transition: top 0.3s cubic-bezier(0.5, 0, 0.5, 1) 0.15s; }
+  -webkit-transition: top 0.3s cubic-bezier(0.5, 0, 0.5, 1) 0.15s;
+          transition: top 0.3s cubic-bezier(0.5, 0, 0.5, 1) 0.15s; }
   .card-description p {
     margin-left: 5%;
     margin-right: 5%; }

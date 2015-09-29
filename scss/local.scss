@@ -3,7 +3,9 @@
 @import "components/mixin";
 @import "main";
 
-#nomargin {
+
+//Generic Extends
+%nomargin {
   margin: 0;
 }
 /* ===================
@@ -29,7 +31,7 @@ body {
 }
 
 .title {
-    color: white;
+    color: $title-text-color;
 }
 @each $section, $color in $section-colors {
   nav a[href="##{$section}"] {
@@ -39,11 +41,8 @@ body {
     .background-banner {
       background-color: $color;
     }
-    a:hover {
-      background-color: $color;
-    }
-    a:focus {
-      background-color: darken($color, 5%);
+    a:hover, a:focus {
+      background-color: lighten($color, 15%);
     }
     a:active {
       background-color: darken($color, 10%);
@@ -113,11 +112,32 @@ nav {
    flex-wrap: wrap;
 
 }
+@for $count from 1 through $section-max-card-count {
+  section .card-holder:nth-of-type(#{$count}) {
+    h3 {
+      z-index: $section-card-z - 1;
+    }
+    .background-banner, .card {
+      z-index: $section-card-z - 2;
+    }
+    .card-description {
+      z-index: $section-card-z - 3;
+    }
+  }
+  $section-card-z: $section-card-z - 3;
+}
 // This card holder is necessary to make the card description hide behind the front card nicely
 .card-holder {
   position: relative;
   margin: $card-margin;
   padding: $card-padding;
+  transition: $card-transition;
+  &:hover {
+    margin: $card-open-margin;
+  }
+}
+.open {
+  margin: $card-open-margin;
 }
 .card {
   @include drop-shadow($drop-shadow-low);
@@ -129,15 +149,15 @@ nav {
   font-size: $card-paragraph-font-size;
   transition: $card-transition;
   position: relative;
-  z-index: $card-z;
+  //z-index: $card-z;
   h3 {
-    @extend #nomargin;
+    @extend %nomargin;
     font-size: $card-title-font-size;
     transition: $card-transition;
-    top: $h3-top;
-    left: $h3-left;
+    top: $card-title-top;
+    left: $card-title-left;
     position: relative;
-    z-index: $h3-z-index;
+    //z-index: $card-title-z-index;
   }
   p {
     margin-left: 5%;
@@ -162,7 +182,7 @@ nav {
   position: $card-banner-position;
   top: $card-banner-top;
   left: 0;
-  z-index: $card-banner-z;
+  //z-index: $card-banner-z;
 }
 //Buttons
 .card-description-button {
@@ -181,14 +201,14 @@ nav {
   position: absolute;
   top: 5%;
   left: 5%;
-  z-index: $card-description-z;
+  //z-index: $card-description-z;
   transition: $card-description-transition;
   p {
     margin-left: 5%;
     margin-right: 5%;
   }
   .open & {
-    top: 100%;
+    top: $card-desc-open-top;
   }
 }
 

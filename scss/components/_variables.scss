@@ -17,6 +17,7 @@ $media-break-maximal: 1140px;
 // Header variables
 $header-footer-border: 20px solid $color-palebrown;
 $header-background-color: $color-lightorange;
+$title-text-color: white;
 
   // Nav menu vars
   $menu-items: 6;
@@ -44,16 +45,22 @@ $section-colors: (
   javascript: darken($color-lightorange, 10%),
   tools: lighten($color-palebrown, 10%)
 );
+$section-max-card-count: 5;
+$section-card-z: 101; // Sets up z for directive giving each card in section descending z values
 
 $card-background-color: lighten($color-beige, 10%);
 $card-border: none;
 $card-border-radius: dpToRem(4);
 $card-height: 10rem;
-$card-margin: 1rem 1rem 1rem 0;
-$card-padding: 5px;
 $card-width: 10rem;
+$card-margin: 1rem 1rem 1rem 0;
+  $hover-trans-marg-delta-h: ($card-height * $hover-transition-factor) - $card-height;
+  $hover-trans-marg-delta-w: ($card-width * $hover-transition-factor) - $card-width;
+$card-open-margin: (1rem - ($hover-trans-marg-delta-h / 2)) (1rem  - $hover-trans-marg-delta-w) (1rem  - ($hover-trans-marg-delta-h / 2)) 0;;
+$card-padding: 5px;
 $card-z: 5;
 $card-paragraph-font-size: 1rem;
+// Card button
 $card-button-border: dpToRem(3);
 $card-button-padding: .25rem;
 $card-button-position: ;
@@ -61,6 +68,9 @@ $card-button-position: ;
 $card-title-font: Arial, Helvetica, sans-serif;
 $card-title-font-size: $card-paragraph-font-size * 1.5;
 $card-title-color: black;
+$card-title-top: 3%;
+$card-title-left: 5%;
+$card-title-z-index: 7;
 // Transition settings for hover state changes
 $card-transition: all 0.75s ease;
 // Styles for colored card banner
@@ -76,9 +86,7 @@ $card-description-width: $card-height * $card-description-size-factor;
 $card-description-bradius: $card-border-radius;
 $card-description-padding: $card-padding * $card-description-size-factor;
 $card-desc-trans-delay: 0.15s;
-$card-description-transition: top 0.3s cubic-bezier(0.5, 0, 0.5,1) $card-desc-trans-delay;
+$card-desc-trans-time: 0.3s;
+$card-description-transition: top $card-desc-trans-time cubic-bezier(0.5, 0, 0.5,1) $card-desc-trans-delay;
 $card-description-z: 3;
-
-$h3-top: 3%;
-$h3-left: 5%;
-$h3-z-index: 7;
+$card-desc-open-top: 100%;
